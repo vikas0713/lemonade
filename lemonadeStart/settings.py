@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DIRNAME = os.path.abspath(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -50,12 +51,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'lemonadeStart.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates/')],
+        'DIRS': [os.path.join(DIRNAME,'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,8 +70,8 @@ TEMPLATES = [
 ]
 
 
-STATICFILES_DIRS= [os.path.join(BASE_DIR, 'static/')]
-WSGI_APPLICATION = 'lemonadeStart.wsgi.application'
+STATICFILES_DIRS= [os.path.join(DIRNAME, 'static/')]
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'lemonadeStart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(DIRNAME, 'db.sqlite3'),
     }
 }
 
